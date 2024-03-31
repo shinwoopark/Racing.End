@@ -11,21 +11,21 @@ public class MainUI : MonoBehaviour
 
     public TextMeshProUGUI Recode, CurrentTime, CurrentMoney;
 
-    public Image SandStorm_img, DesertOher_img, MountainOther_img, CityOther_img, Engine_img, Wheel_img;
+    public Sprite Booster1, Booster2;
+    public Image SandStorm_img, DesertOher_img, MountainOther_img, CityOther_img, Engine_img, Wheel_img, Inventory1, Inventory2;
     public GameObject SandStorm_gb, DesertOhter_gb, MountainOther_gb, CityOther_gb;
     public Color Yellow, Orange, Red, Green, Gray;
 
     private void Start()
     {
-        if (GameInstence.instence.bPlay)
+        if (mainUI != null)
         {
-            Destroy(gameObject);
+            mainUI = this;
         }
         else
         {
             Destroy(mainUI);
             mainUI = this;
-            DontDestroyOnLoad(gameObject);
         }
     }
 
@@ -36,6 +36,7 @@ public class MainUI : MonoBehaviour
         CurrentTime.text = GameInstence.instence.CurrentTime.ToString("F2");
         CurrentMoney.text = GameInstence.instence.CurrentMoney.ToString("N0");
 
+        UpdateBoosterInventory();
         UpdateEngineLevel();
         UpdateWheelLevel();
     }
@@ -50,12 +51,18 @@ public class MainUI : MonoBehaviour
         switch(GameInstence.instence.CurrentStage)
         {
             case 1:
+                GameManager.manager.GameClearUI.SetActive(false);
+                GameInstence.instence.CurrentStage = 2;
                 SceneManager.LoadScene("Stage2");
                 break;
             case 2:
+                GameManager.manager.GameClearUI.SetActive(false);
+                GameInstence.instence.CurrentStage = 3;
                 SceneManager.LoadScene("Stage3");
                 break;
             case 3:
+                GameManager.manager.GameClearUI.SetActive(false);
+                GameInstence.instence.CurrentStage = 0;
                 SceneManager.LoadScene("Ranking");
                 break;
         }
@@ -68,12 +75,15 @@ public class MainUI : MonoBehaviour
         switch (GameInstence.instence.CurrentStage)
         {
             case 1:
+                GameManager.manager.GameOverUI.SetActive(false);
                 SceneManager.LoadScene("Stage1");
                 break;
             case 2:
+                GameManager.manager.GameOverUI.SetActive(false);
                 SceneManager.LoadScene("Stage2");
                 break;
             case 3:
+                GameManager.manager.GameOverUI.SetActive(false);
                 SceneManager.LoadScene("Stage3");
                 break;
         }
@@ -98,8 +108,41 @@ public class MainUI : MonoBehaviour
         else
         {
             SandStorm_gb.SetActive(false);
-            if (SandStorm_img.color.a > 0)
-                SandStorm_img.color -= new Color(0, 0, 0, 0.3f * Time.deltaTime);
+            SandStorm_img.color = new Color(0, 0, 0, 0);
+        }
+    }
+
+    public void UpdateBoosterInventory()
+    {
+        switch (GameInstence.instence.CurrentInventory[0])
+        {
+            case 0:
+                Inventory1.color = new Color(255, 255, 255, 0);
+                break;
+            case 1:
+                Inventory1.color = new Color(255, 255, 255, 255);
+                Inventory1.sprite = Booster1;
+                break;
+            case 2:
+                Inventory1.color = new Color(255, 255, 255, 255);
+                Inventory1.sprite = Booster2;
+                break;
+        }
+
+        switch (GameInstence.instence.CurrentInventory[1])
+        {
+            case 0:
+                Inventory2.color = new Color(255, 255, 255, 0);
+                Inventory2.sprite = null;
+                break;
+            case 1:
+                Inventory2.color = new Color(255, 255, 255, 255);
+                Inventory2.sprite = Booster1;
+                break;
+            case 2:
+                Inventory2.color = new Color(255, 255, 255, 255);
+                Inventory2.sprite = Booster2;
+                break;
         }
     }
 

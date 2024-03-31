@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(StartRacing());
+        StartCoroutine(StartRacing());       
     }
 
     void Update()
@@ -39,7 +39,9 @@ public class GameManager : MonoBehaviour
 
     public void StartGameScene()
     {
-        SceneManager.LoadScene("Stage1");
+       GameInstence.instence.CurrentStage = 1;
+       GameInstence.instence.bPlay = true;
+       SceneManager.LoadScene("Stage1");
     }
 
     public void MainMenuScene()

@@ -11,9 +11,11 @@ public class PlayerSystem : MonoBehaviour
 
     private float _fowardPower;
 
-    private bool bWhiper;
+    private bool bWhiper, bEnemyCam;
 
     public AudioSource GetItemSound, SandStormSound;
+
+    public GameObject EnemyCam_gb;
 
     void Start()
     {
@@ -39,6 +41,7 @@ public class PlayerSystem : MonoBehaviour
         }
 
         UpdateInput();
+        UpdateEnemyCam();
     }
 
     private void UpdateInput()
@@ -101,7 +104,7 @@ public class PlayerSystem : MonoBehaviour
         }
 
         //DesertOhter
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             if (GameInstence.instence.bDesertOther && bWhiper)
             {               
@@ -113,7 +116,30 @@ public class PlayerSystem : MonoBehaviour
                 bWhiper = true;
                 MainUI.OtherItem(1, bWhiper);
             }
-        }          
+        }
+
+        //MountainOhter
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            if (GameInstence.instence.bMountainOther && bEnemyCam)
+            {
+                bEnemyCam = false;
+                MainUI.OtherItem(1, bEnemyCam);
+            }
+            else if (GameInstence.instence.bMountainOther && !bEnemyCam)
+            {
+                bEnemyCam = true;
+                MainUI.OtherItem(1, bEnemyCam);
+            }
+        }
+    }
+
+    private void UpdateEnemyCam()
+    {
+        if(bEnemyCam)
+            EnemyCam_gb.SetActive(true);
+        else
+            EnemyCam_gb.SetActive(false);
     }
 
     private void OnTriggerStay(Collider other)

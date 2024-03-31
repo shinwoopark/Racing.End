@@ -13,17 +13,58 @@ public class ShopUI : MonoBehaviour
 
     public AudioSource BuySound;
 
-    private void Awake()
+    private void Start()
     {
-        if (GameInstence.instence.bPlay)
+        if(GameInstence.instence.CurrentEngineLevel == 1)
         {
-            Destroy(gameObject);
+            SoldOuts_gb[0].SetActive(true);
+            LockOns[0].bLockOff = true;
         }
-        else
+        if (GameInstence.instence.CurrentEngineLevel == 2)
         {
-            Destroy(shopUI);
-            shopUI = this;
-            DontDestroyOnLoad(gameObject);
+            SoldOuts_gb[0].SetActive(true);
+            LockOns[0].bLockOff = true;
+            SoldOuts_gb[1].SetActive(true);
+            LockOns[1].bLockOff = true;
+        }
+        if (GameInstence.instence.CurrentEngineLevel == 3)
+        {
+            SoldOuts_gb[0].SetActive(true);
+            LockOns[0].bLockOff = true;
+            SoldOuts_gb[1].SetActive(true);
+            LockOns[1].bLockOff = true;
+            SoldOuts_gb[2].SetActive(true);
+            LockOns[2].bLockOff = true;
+        }
+        if (GameInstence.instence.bDesertWheel)
+        {
+            SoldOuts_gb[3].SetActive(true);
+        }
+        if (GameInstence.instence.bMountainWheel)
+        {
+            SoldOuts_gb[4].SetActive(true);
+        }
+        if (GameInstence.instence.bCityWheel)
+        {
+            SoldOuts_gb[5].SetActive(true);
+        }
+        if (GameInstence.instence.bDesertOther)
+        {
+            SoldOuts_gb[6].SetActive(true);
+            MainUI.mainUI.DesertOhter_gb.SetActive(true);
+            MainUI.mainUI.OtherItem(1, false);
+        }
+        if (GameInstence.instence.bMountainOther)
+        {
+            SoldOuts_gb[7].SetActive(true);
+            MainUI.mainUI.MountainOther_gb.SetActive(true);
+            MainUI.mainUI.OtherItem(2, false);
+        }
+        if (GameInstence.instence.bCityOther)
+        {
+            SoldOuts_gb[8].SetActive(true);
+            MainUI.mainUI.CityOther_gb.SetActive(true);
+            MainUI.mainUI.OtherItem(3, false);
         }
     }
 
@@ -124,9 +165,9 @@ public class ShopUI : MonoBehaviour
 
     public void BuyMountainOther()
     {
-        if (GameInstence.instence.CurrentMoney >= 3000000 && !GameInstence.instence.bMountainOther)
+        if (GameInstence.instence.CurrentMoney >= 4000000 && !GameInstence.instence.bMountainOther)
         {
-            GameInstence.instence.CurrentMoney -= 3000000;
+            GameInstence.instence.CurrentMoney -= 4000000;
             GameInstence.instence.bMountainOther = true;
             SoldOuts_gb[7].SetActive(true);
             BuySound.Play();
@@ -137,9 +178,9 @@ public class ShopUI : MonoBehaviour
 
     public void BuyCityOther()
     {
-        if (GameInstence.instence.CurrentMoney >= 3000000 && !GameInstence.instence.bCityOther)
+        if (GameInstence.instence.CurrentMoney >= 5000000 && !GameInstence.instence.bCityOther)
         {
-            GameInstence.instence.CurrentMoney -= 3000000;
+            GameInstence.instence.CurrentMoney -= 5000000;
             GameInstence.instence.bCityOther = true;
             SoldOuts_gb[8].SetActive(true);
             BuySound.Play();

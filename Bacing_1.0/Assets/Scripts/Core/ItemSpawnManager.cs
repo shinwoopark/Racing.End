@@ -10,9 +10,6 @@ public class ItemSpawnManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(ItemSpawnPoses.Length);
-        Debug.Log(Items.Length);
-
         for (int i = 0; i < ItemSpawnPoses.Length; i++)
         {
             for (int j = 0; j < Items.Length; j++)
@@ -21,7 +18,6 @@ public class ItemSpawnManager : MonoBehaviour
 
                 if (randomeItem == 0 || randomeItem == 1)
                 {
-                    Debug.Log(randomeItem);
                     Instantiate(Items[randomeItem], ItemSpawnPoses[i].transform.GetChild(j).transform.position, Quaternion.Euler(0, 0, 40));
                 }                   
                 else

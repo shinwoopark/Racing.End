@@ -259,7 +259,11 @@ public class CarMoveSystem : MonoBehaviour
 
         }
         else
+        {
+            transform.rotation = Quaternion.FromToRotation(transform.up, -hit.normal) * transform.rotation;
             bGround = false;
+        }
+            
     }
 
     private void UpdateWheels()

@@ -36,7 +36,6 @@ public class HurdleSystem : MonoBehaviour
             UpdateFindPlayer();
             WarningUI();
         }
-            
     }
 
     private void FixedUpdate()

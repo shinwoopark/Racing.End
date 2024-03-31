@@ -325,6 +325,7 @@
 "Assets/Scripts/Item/ShopItem.cs"
 "Assets/Scripts/UI/LockOn.cs"
 "Assets/Scripts/UI/MainUI.cs"
+"Assets/Scripts/UI/RankingUI.cs"
 "Assets/Scripts/UI/ShopUI.cs"
 "Assets/Scripts/UI/SoldOut.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"

@@ -402,7 +402,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1058236963}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1735701830}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RankingScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1058236963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,6 +528,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1210403700}
   m_CullTransparentMesh: 1
+--- !u!1 &1447938342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1447938344}
+  - component: {fileID: 1447938343}
+  m_Layer: 0
+  m_Name: GameInstace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1447938343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447938342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 832c39f6b3991a447a67075edc67d12f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bPlay: 0
+  bRacing: 0
+  CurrentTime: 0
+  Recodes:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  AllRecode: 0
+  ReTry: 0
+  CurrentStage: 0
+  CurrentInventory: 0000000000000000
+  CurrentMoney: 0
+  CurrentEngineLevel: 0
+  bDesertWheel: 0
+  bMountainWheel: 0
+  bCityWheel: 0
+  bDesertOther: 0
+  bMountainOther: 0
+  bCityOther: 0
+--- !u!4 &1447938344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447938342}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1382.905, y: 0.6156883, z: 771.90955}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1662442253
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,6 +727,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1662442253}
   m_CullTransparentMesh: 1
+--- !u!1 &1735701829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1735701831}
+  - component: {fileID: 1735701830}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1735701830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735701829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2734c487df19ce940a1c33b03c5ca810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameClearUI: {fileID: 0}
+  GameOverUI: {fileID: 0}
+  ShopUI: {fileID: 0}
+  CountDownSound: {fileID: 0}
+  StartUpSound: {fileID: 0}
+  ReadySound: {fileID: 0}
+  WinSound: {fileID: 0}
+  LoseSound: {fileID: 0}
+--- !u!4 &1735701831
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735701829}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1382.905, y: 0.6156883, z: 771.90955}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768779232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1135,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1858276598}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1735701830}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: StartGameScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1858276598
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1215,3 +1356,5 @@ SceneRoots:
   - {fileID: 1934659308}
   - {fileID: 167832339}
   - {fileID: 2141482915}
+  - {fileID: 1735701831}
+  - {fileID: 1447938344}
